@@ -1,0 +1,17 @@
+{
+  "name": "neural-map",
+  "owner": {
+    "name": "AKS97i"
+  },
+  "metadata": {
+    "description": "Native activity maps for coding agents"
+  },
+  "plugins": [
+    {
+      "name": "neural-map",
+      "source": "./",
+      "description": "A native cyberpunk activity HUD for Claude Code, with switchable color themes.",
+      "version": "0.1.0"
+    }
+  ]
+}

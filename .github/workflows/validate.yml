@@ -1,0 +1,22 @@
+name: Validate native plugin
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  claude-plugin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install the tested Claude Code runtime
+        run: npm install --global @anthropic-ai/claude-code@2.1.327
+      - name: Validate manifest and native hooks
+        run: claude plugin validate .
+      - name: Check runtime surface
+        run: node scripts/check-surface.mjs
+      - name: Run native regression tests
+        run: claude plugin test .

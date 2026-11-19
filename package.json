@@ -1,0 +1,13 @@
+{
+  "name": "neural-map",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Native cyberpunk activity pane for Claude Code",
+  "scripts": {
+    "test": "claude plugin test .",
+    "validate": "claude plugin validate . && node scripts/check-surface.mjs",
+    "preview": "tsx scripts/render-preview.ts"
+  },
+  "devDependencies": { "sharp": "^0.35.5", "tsx": "^4.21.0" }
+}
