@@ -1,5 +1,8 @@
 # Neural Map
 
+[![Native plugin checks](https://github.com/AKS97i/neural-map/actions/workflows/validate.yml/badge.svg)](https://github.com/AKS97i/neural-map/actions/workflows/validate.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-f4f444.svg)](LICENSE)
+
 ### See your coding agent think in signals.
 
 A **native Claude Code activity pane** with a cyberpunk HUD, live tool signals,

@@ -14,8 +14,10 @@ in-app browser and not a floating companion window. Neither fallback is shipped.
   establish a native custom pane API equivalent to Claude's mod API.
 - The documented MCP Apps UI uses web content in an iframe with a host bridge.
 - OpenAI MCP Extensions documents conversation-panel entrypoints for ChatGPT.
-  Host support in the user's Codex build must be established before claiming this
-  as a working Codex integration.
+  The protocol's platform matrix marks thread entrypoints as supported on
+  Desktop, defines them as content tabs inside a thread, and uses the `codex://`
+  scheme for desktop plugin deep links. Host support in the user's installed
+  Codex build still needs an end-to-end check before claiming a working integration.
 
 ## Next viable route
 
@@ -23,6 +25,12 @@ Investigate an installable MCP App with a conversation-panel entrypoint. It may
 provide the desired embedded plugin surface without browser chrome or a URL tab,
 but its renderer is still web content. That distinction must be clear to users,
 and availability and local log access need an end-to-end proof in Codex.
+
+The concrete registration is a tool with `_meta.ui.resourceUri` pointing to its
+UI resource and `_meta["openai/ui"].entrypoints` containing `{ "type": "thread" }`.
+The host calls it with empty arguments and opens a separate instance for each
+thread. This is a dedicated plugin content tab, not the earlier localhost URL tab.
+It is a supported protocol direction, not a delivered or host-verified feature.
 
 If a host exposes true native pane primitives in future, build a host adapter
 around the existing bounded board and theme renderer. Keep provider-specific
